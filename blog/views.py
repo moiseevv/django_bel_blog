@@ -10,7 +10,7 @@ def hello_world(request):
 
 
 def post_list(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().filter(publish=True)
     context = {'items': posts}
     return render(request, 'blog/post_list.html', context)
 
