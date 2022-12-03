@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime
 from django.http import HttpResponse
 from blog.models import Post
@@ -22,5 +22,29 @@ def post_detail(request, post_pk):
 
 
 def post_new(request):
-    form = PostForm
-    return render(request, 'blog/post_new.html', {'form': form})
+    if request.method == "GET":
+        form = PostForm
+        return render(request, 'blog/post_new.html', {'form': form})
+    else:
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.create_date = datetime.now()
+            post.publish_date = datetime.now()
+            post.save()
+            return redirect("post_detail", post_pk=post.pk)
+
+
+def post_edit(request, post_pk):
+    post = get_object_or_404(Post, pk = post_pk)
+    if request.method == "GET":
+        form = PostForm(instance=post)
+        return render(request, 'blog/post_edit.html', {'form': form})
+    else:
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.create_date = datetime.now()
+            post.publish_date = datetime.now()
+            post.save()
+            return redirect("post_detail", post_pk=post.pk)

@@ -20,11 +20,11 @@
     </a>
 </div>
 
-<h2>Создать новю пуликацию</h2>
+<h2>Редактировать пуликацию</h2>
 
 <form action="" method="POST">{% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Добавить">
+        {{ form.as_p }}
+        <input type="submit" value="Изменить">
 </form>
 
 
