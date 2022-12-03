@@ -6,17 +6,17 @@
 </head>
 <body>
 <h1 align="center">Present posts list</h1>
-    {{ items }}
+{{ items }}
 <br>
-    {% for post in items %}
-    <div style="margin: 50px; display: inline-block">
-        <br>
-        <div>{{ post.title }}</div>
-        <div>{{ post.text }}</div>
-        <div>{{ post.create_date }}</div>
-        <div>{{ post.publish_date }}</div>
-    </div>
-    {% endfor %}
+{% for post in items %}
+<div style="margin: 50px; display: inline-block">
+    <br>
+    <div>{{ post.title }}</div>
+    <div>{{ post.text }}</div>
+    <div>{{ post.create_date }}</div>
+    <div>{{ post.publish_date }}</div>
+</div>
+{% endfor %}
 
 
 </body>
