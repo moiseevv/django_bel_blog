@@ -17,6 +17,8 @@
         Назад</a></h3>
     <h3><a  style=" margin: 5px; font-size: 15px; text-align: center; border: 2px solid; border-radius: 20px; padding: 10px" href="{% url 'post_edit' post_pk=post.pk %}">
         Редактировать</a></h3>
+    <h3><a  style=" margin: 5px; font-size: 15px; text-align: center; border: 2px solid; border-radius: 20px; padding: 10px" href="{% url 'post_delete' post_pk=post.pk %}">
+        Удалить</a></h3>
 </div>
 </body>
 </html>

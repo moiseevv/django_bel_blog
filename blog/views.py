@@ -41,10 +41,15 @@ def post_edit(request, post_pk):
         form = PostForm(instance=post)
         return render(request, 'blog/post_edit.html', {'form': form})
     else:
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.create_date = datetime.now()
             post.publish_date = datetime.now()
             post.save()
             return redirect("post_detail", post_pk=post.pk)
+
+def post_delete(request, post_pk):
+    post = get_object_or_404(Post, pk = post_pk)
+    post.delete()
+    return redirect('post_list')
