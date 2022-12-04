@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime
 from django.http import HttpResponse
-from blog.models import Post
+from blog.models import Post, Comments
 from blog.forms import PostForm
 
 
@@ -17,7 +17,8 @@ def post_list(request):
 
 def post_detail(request, post_pk):
     post = Post.objects.get(pk=post_pk)
-    context = {'post': post}
+    comments = Comments.objects.filter(post=post_pk)
+    context = {'post': post, 'comments': comments}
     return render(request, 'blog/post_detail.html', context)
 
 
