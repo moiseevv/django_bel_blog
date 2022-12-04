@@ -10,3 +10,10 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+class Comments(models.Model):
+    text = models.TextField(verbose_name='Текст комментария')
+    publish_date = models.DateTimeField(verbose_name='Дата публикации комментария')
+
+    def __str__(self):
+        return self.text

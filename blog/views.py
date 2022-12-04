@@ -36,7 +36,7 @@ def post_new(request):
 
 
 def post_edit(request, post_pk):
-    post = get_object_or_404(Post, pk = post_pk)
+    post = get_object_or_404(Post, pk=post_pk)
     if request.method == "GET":
         form = PostForm(instance=post)
         return render(request, 'blog/post_edit.html', {'form': form})
@@ -49,7 +49,18 @@ def post_edit(request, post_pk):
             post.save()
             return redirect("post_detail", post_pk=post.pk)
 
+
 def post_delete(request, post_pk):
-    post = get_object_or_404(Post, pk = post_pk)
+    print("Запуск удалить")
+    post = get_object_or_404(Post, pk=post_pk)
     post.delete()
     return redirect('post_list')
+
+
+def post_publish(request, post_pk):
+    print("Запуск опубликовать")
+    post = get_object_or_404(Post, pk=post_pk)
+    post.publish = True
+    post.save()
+    context = {'post': post}
+    return render(request, 'blog/post_detail.html', context)
