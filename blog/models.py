@@ -15,6 +15,7 @@ class Comments(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField(verbose_name='Текст комментария')
     publish_date = models.DateTimeField(verbose_name='Дата публикации комментария')
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.text
