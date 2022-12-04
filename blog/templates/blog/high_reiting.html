@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Посты с наибольшим рейтингом</title>
+</head>
+<body>
+<h1 align="center">Посты с наибольшим рейтингом</h1>
+<!--{{ items }}-->
+<br>
+{% for post in context %}
+<div style="margin: 50px; display: inline-block">
+    <div style=" padding: 10px">
+        <div><a href="{% url 'post_detail' post_pk=post.pk %}"> {{ post.title }} </a></h3></div>
+        <div>{{ post.text }}</div>
+        <div>{{ post.create_date }}</div>
+        <div>{{ post.publish_date }}</div>
+        <div>{{ post.reiting }}</div>
+    </div>
+</div>
+{% endfor %}
+
+
+</body>
+</html>

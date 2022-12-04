@@ -11,6 +11,7 @@ class Post(models.Model):
     publish_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
     publish = models.BooleanField(default=False)
     cat = models.ForeignKey(Cat , on_delete=models.CASCADE)
+    reiting = models.IntegerField(verbose_name="Рейтинг")
 
     def __str__(self):
         return f"{self.title}"
