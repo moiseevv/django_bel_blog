@@ -69,6 +69,7 @@ def post_publish(request, post_pk):
 def high_reiting(request):
     post = Post.objects.order_by('-reiting')[:5]
     print(post)
+
     context = {'context': post}
     return render(request, 'blog/high_reiting.html', context)
 

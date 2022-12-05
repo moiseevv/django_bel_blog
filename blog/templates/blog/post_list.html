@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Post list</title>
+    <style>
+        a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-<h1 align="center">Present posts list</h1>
+<h1 align="center">Посты блога</h1>
 <!--{{ items }}-->
 <br>
 {% for post in items %}
@@ -19,6 +26,14 @@
 </div>
 {% endfor %}
 
+<h3>Существующие страницы</h3>
+<a href="{% url 'post_detail' post_pk=1 %}"> Детализация первого поста </a><br>
+<a href="{% url 'hi' %}"> Hi </a><br>
+<a href="{% url 'post_new'  %}"> Новый пост </a><br>
+<a href="{% url 'high' %}"> Рейтинт первых постов </a><br>
+<a href="{% url 'post_publish' post_pk=1  %}"> Публикация поста </a><br>
+<a href="{% url 'post_edit'  post_pk=1  %}"> Редактирование поста </a><br>
+<a href="{% url 'post_delete'  post_pk=1  %}"> Удаление поста </a><br>
 
 </body>
 </html>

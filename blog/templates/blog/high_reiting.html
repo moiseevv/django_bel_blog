@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Посты с наибольшим рейтингом</title>
+    <style type="text/css">
+        h1 { color : gray ;}
+        p { font-size: smaller; color: black; display: inline-block};
+        @import url(site.css);
+    </style>
 </head>
 <body>
 <h1 align="center">Посты с наибольшим рейтингом</h1>
 <!--{{ items }}-->
 <br>
 {% for post in context %}
+<p>
 <div style="margin: 50px; display: inline-block">
     <div style=" padding: 10px">
         <div><a href="{% url 'post_detail' post_pk=post.pk %}"> {{ post.title }} </a></h3></div>
@@ -18,7 +24,10 @@
         <div>{{ post.reiting }}</div>
     </div>
 </div>
+</p>
 {% endfor %}
+
+<h2 style="color: red; background: yellow;"> Внимание ! Этот текст оформлен как предупреждение</h2>
 
 
 </body>
