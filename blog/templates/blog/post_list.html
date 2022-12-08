@@ -51,7 +51,7 @@
 
 
 {% for post in items %}
-<div style="margin: 50px; display: inline-block">
+<div style="margin: 50px; display: inline-block ; text-align: center; text-decoration: overline;">
     <div style=" padding: 10px">
         <div><h3 ><a href="{% url 'post_detail' post_pk=post.pk %}"> {{ post.title }} </a></h3></div>
         <div>{{ post.text }}</div>
