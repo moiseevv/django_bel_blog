@@ -1,0 +1,8 @@
+body{
+            background-color: #FF9;
+            animation-play-state: running;
+            animation-name: 'turn', 'slide', none;
+            animation-iteration-count: infinite;
+            animation: 'slide' 2.5s linear 0 1 normal;
+            animation-duration: 10s, 5s, 2,5s, 1250ms;
+        }

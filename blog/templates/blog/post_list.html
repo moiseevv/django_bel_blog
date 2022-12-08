@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Post list</title>
-    <style>
-        a {
-        text-decoration: none;
-        color: black;
-        font-size: 18px;
-        }
-        body {
+    <style type="text/css">
+        body{
             background-color: #FF9;
             animation-play-state: running;
             animation-name: 'turn', 'slide', none;
@@ -17,7 +12,16 @@
             animation: 'slide' 2.5s linear 0 1 normal;
             animation-duration: 10s, 5s, 2,5s, 1250ms;
         }
+        a {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        font-variant: small-caps;
+        font-weight: 700;
+        }
+
         h3{
+            opacity: 0.9;
             border: 2px solid olive;
             border-bottom-color: black;
             border-bottom-left-radius: 10%;
@@ -25,10 +29,21 @@
             border-bottom-style: solid;
             border-bottom-width: 3px;
             border-style: ridge;
+            border-top-width: think;
+            border-top-style: solid;
+            box-shadow: 1px 1px black;
+            font-variant: small-caps;
         }
+        blockquote{
+            box-sizing: border-box;
+            width: 800px;
+            padding: 0 20px;
+        {
+
     </style>
 </head>
 <body>
+<hr style="color: red;">
 <h1 align="center">Посты блога</h1>
 <!--{{ items }}-->
 <br>
@@ -42,13 +57,14 @@
         <div>{{ post.text }}</div>
         <div>{{ post.create_date }}</div>
         <div>{{ post.publish_date }}</div>
+        <hr style="color: red">
     </div>
 </div>
 {% endfor %}
 <p>Проверка запускает блоки <em>повторно</em></p>
 
 {% for post in items %}
-<div style="margin: 50px; display: run-in ; color: red;">
+<div style="margin: 50px ; display: inline-box; color: red; box-align: stretch; ">
     <div style=" padding: 10px; ">
         <div><h3><a href="{% url 'post_detail' post_pk=post.pk %}"> {{ post.title }} </a></h3></div>
         <div>{{ post.text }}</div>
@@ -66,6 +82,14 @@
 <a href="{% url 'post_publish' post_pk=1  %}"> Публикация поста </a><br>
 <a href="{% url 'post_edit'  post_pk=1  %}"> Редактирование поста </a><br>
 <a href="{% url 'post_delete'  post_pk=1  %}"> Удаление поста </a><br>
+
+<hr>
+
+<blockquote class="tp-blockquote "><p>Этот цитатный блок — пример блочного элемента. Как вы видите по его фону, он занимает всю ширину контейнера, а не растягивается только до тех мест, где есть текст.</p>
+</blockquote>
+
+
+<ruby><rb>one</rb> <rb>two</rb> <rt>1</rt> <rt>2</rt></ruby>
 
 </body>
 </html>

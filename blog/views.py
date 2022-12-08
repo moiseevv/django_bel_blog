@@ -73,3 +73,6 @@ def high_reiting(request):
     context = {'context': post}
     return render(request, 'blog/high_reiting.html', context)
 
+def css(request):
+    return  render(request, 'blog/site.css')
+

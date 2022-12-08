@@ -1,5 +1,5 @@
 from django.urls import path
-from blog.views import hello_world, post_list, post_detail, post_new, post_edit, post_delete, post_publish, high_reiting
+from blog.views import hello_world, post_list, post_detail, post_new, post_edit, post_delete, post_publish, high_reiting, css
 
 urlpatterns = [
     path('hello-world/', hello_world, name='hi'),
@@ -9,5 +9,6 @@ urlpatterns = [
     path('post/publish/<int:post_pk>', post_publish, name='post_publish'),
     path('post/edit/<int:post_pk>', post_edit, name='post_edit'),
     path('post/delete/<int:post_pk>', post_delete, name='post_delete'),
+    path('site.css', css, name='css'),
     path('', post_list, name='post_list'),
 ]
